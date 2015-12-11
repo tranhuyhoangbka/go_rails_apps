@@ -1,0 +1,3 @@
+%li{class: dom_id(book)}
+  %h3= link_to book.title, book_path(book)
+  %p= book.description.truncate 150

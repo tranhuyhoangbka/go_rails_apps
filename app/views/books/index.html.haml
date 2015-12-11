@@ -1,0 +1,6 @@
+.panel.panel-default
+  .panel-heading
+    %h3 Books
+  .panel-body
+    %ul.books-list.list-unstyled= render @books
+    = will_paginate @books, renderer: BootstrapPagination::Rails
