@@ -1,3 +1,7 @@
-%li{class: dom_id(book)}
-  %h3= link_to book.title, book_path(book)
-  %p= book.description.truncate 150
+%li{id: dom_id(book), class: "book"}
+  .row
+    .col-md-3
+      = link_to image_tag(book.image.thumb.url), book_path(book)
+    .col-md-9
+      %h3= link_to book.title, book_path(book)
+      %p= book.description.truncate 150

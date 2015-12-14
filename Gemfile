@@ -16,6 +16,9 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "faker", "~> 1.6", ">= 1.6.1"
 gem "will_paginate", "~> 3.0", ">= 3.0.7"
 gem "will_paginate-bootstrap", "~> 1.0", ">= 1.0.1"
+gem "carrierwave", "~> 0.10.0"
+gem "mini_magick"
+gem "devise", "~> 3.5", ">= 3.5.3"
 group :development, :test do
   gem "pry-rails"
   gem "rspec-rails"
@@ -24,6 +27,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "web-console", "~> 2.0"
   gem "spring"
 end

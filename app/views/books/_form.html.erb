@@ -4,6 +4,7 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :description %>
+    <%= f.input :image, as: :file, input_html: {accept: 'image/jpeg,image/gif,image/png'} %>
   </div>
 
   <div class="form-actions">

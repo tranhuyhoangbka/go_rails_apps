@@ -1,13 +1,16 @@
 %nav.navbar.navbar-default#header
   .container-fluid
     .navbar-header
-      %a.navbar-brand{href: "#"} GO RAILS APP
+      %a.navbar-brand{href: "/"} GO RAILS APP
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       %ul.nav.navbar-nav
-        %li
-          %a{href: "#"} Link
+        %li= link_to "BOOKS", books_path
         %li
           %a{href: "#"} Link
       %ul.nav.navbar-nav.navbar-right
-        %li
-          %a{href: "#"} Link
+        - if user_signed_in?
+          %li= link_to current_user.email, edit_user_registration_path
+          %li= link_to "Logout", destroy_user_session_path, method: :delete
+        - else
+          %li= link_to "Sign In", new_user_session_path
+          %li= link_to "Sign Up", new_user_registration_path
