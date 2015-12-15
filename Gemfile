@@ -19,11 +19,13 @@ gem "will_paginate-bootstrap", "~> 1.0", ">= 1.0.1"
 gem "carrierwave", "~> 0.10.0"
 gem "mini_magick"
 gem "devise", "~> 3.5", ">= 3.5.3"
+gem "annotate", "~> 2.6", ">= 2.6.10"
 group :development, :test do
   gem "pry-rails"
   gem "rspec-rails"
   gem "factory_girl_rails", "~> 4.0"
   gem "database_cleaner", "~> 1.5", ">= 1.5.1"
+  gem "dotenv-rails"
 end
 
 group :development do
