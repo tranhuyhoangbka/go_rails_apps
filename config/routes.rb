@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     patch :publish, on: :member
   end
   root to: "books#index"
+  get "/web_console"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

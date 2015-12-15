@@ -40,6 +40,10 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.default_url_options = {host: "localhost", port: 3000}
 
+  config.web_console.automount = true
+
+  config.web_console.mount_point = '/web_console'
+
   ActionMailer::Base.smtp_settings = {
     address: "smtp.gmail.com",
     enable_starttls_auto: true,
