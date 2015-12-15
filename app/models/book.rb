@@ -2,14 +2,15 @@
 #
 # Table name: books
 #
-#  id          :integer          not null, primary key
-#  title       :string(255)
-#  description :text(65535)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  slug        :string(255)
-#  image       :string(255)
-#  user_id     :integer
+#  id           :integer          not null, primary key
+#  title        :string(255)
+#  description  :text(65535)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  slug         :string(255)
+#  image        :string(255)
+#  user_id      :integer
+#  published_at :datetime
 #
 # Indexes
 #
@@ -18,6 +19,8 @@
 #
 
 class Book < ActiveRecord::Base
+  TIME_FORMAT = "%k:%m %P %d/%m/%Y"
+
   extend FriendlyId
   mount_uploader :image, ImageUploader
 
@@ -28,6 +31,14 @@ class Book < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   self.per_page = 10
+
+  def published?
+    published_at.present?
+  end
+
+  def published_at_format
+    published_at.strftime TIME_FORMAT
+  end
 
   private
   def file_size

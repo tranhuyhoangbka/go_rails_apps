@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, except: [:index, :new, :create]
 
   # GET /books
   # GET /books.json
@@ -49,6 +49,12 @@ class BooksController < ApplicationController
         format.html { render :edit }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def publish
+    unless @book.update_attributes published_at: ServerTime.now
+      @book.errors.add "published_at", "Fail to publish book !"
     end
   end
 

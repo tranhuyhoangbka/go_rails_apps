@@ -1,0 +1,7 @@
+<% if @book.errors.any? %>
+  alert("<%= @book.errors.full_messages.join '\n' %>")
+<% else %>
+  $(".show-publish-time").text("Publish at <%= @book.published_at_format %>")
+  $(".btn-publish-book").remove()
+<% end %>
+
